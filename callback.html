@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIClipper — Authorization</title>
+<style>
+:root { --ink: #1c1c1e; --muted: #6b6b70; --line: #e5e5e2; --accent: #3b82f6; }
+@media (prefers-color-scheme: dark) {
+  :root { --ink: #ededf0; --muted: #9a9fae; --line: #2a3550; --accent: #4c8df8; }
+  body { background: #0f172a; }
+}
+body { margin: 0 auto; max-width: 680px; padding: 48px 20px 80px; color: var(--ink);
+  font: 17px/1.65 -apple-system, "Segoe UI", sans-serif; }
+h1 { font-size: 26px; }
+code, .box { font-family: ui-monospace, Menlo, monospace; }
+.box { display: block; margin: 16px 0; padding: 14px 16px; border: 1px solid var(--line);
+  border-radius: 10px; word-break: break-all; user-select: all; font-size: 15px; }
+.muted { color: var(--muted); }
+.err { color: #b91c1c; }
+</style>
+</head>
+<body>
+<h1>🎙 AIClipper authorization</h1>
+<div id="out"><p class="muted">Reading the authorization response…</p></div>
+<script>
+// This page only reads the OAuth parameters TikTok appended to the URL and
+// displays them to the operator. Nothing is sent anywhere.
+const q = new URLSearchParams(window.location.search);
+const out = document.getElementById("out");
+if (q.get("code")) {
+  out.innerHTML =
+    "<p>Authorization granted. Copy this code and paste it into the " +
+    "<code>aiclipper</code> terminal prompt on your computer:</p>" +
+    "<span class='box'>" + q.get("code").replace(/[<>&]/g, "") + "</span>" +
+    "<p class='muted'>The code is single-use and expires in a few minutes. " +
+    "You can close this tab afterwards.</p>";
+} else if (q.get("error")) {
+  out.innerHTML =
+    "<p class='err'>Authorization was not completed: <code>" +
+    q.get("error").replace(/[<>&]/g, "") + "</code></p>" +
+    "<p class='muted'>Close this tab and run the authorization again from the tool.</p>";
+} else {
+  out.innerHTML =
+    "<p class='muted'>This page is the OAuth redirect target for AIClipper, a " +
+    "single-user publishing tool. It only does something at the end of an " +
+    "authorization flow started by the tool's operator.</p>";
+}
+</script>
+</body>
+</html>

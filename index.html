@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIClipper</title>
+<style>
+:root { --ink: #1c1c1e; --muted: #6b6b70; --line: #e5e5e2; --accent: #3b82f6; }
+@media (prefers-color-scheme: dark) {
+  :root { --ink: #ededf0; --muted: #9a9fae; --line: #2a3550; --accent: #4c8df8; }
+  body { background: #0f172a; }
+}
+body { margin: 0 auto; max-width: 680px; padding: 48px 20px 80px; color: var(--ink);
+  font: 17px/1.65 -apple-system, "Segoe UI", sans-serif; }
+h1 { font-size: 28px; margin: 0 0 4px; }
+h2 { font-size: 19px; margin-top: 36px; }
+.tag { color: var(--muted); margin: 0 0 28px; }
+a { color: var(--accent); }
+footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--line);
+  color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+<h1>🎙 AIClipper</h1>
+<p class="tag">A personal publishing tool for one creator's short-form video account.</p>
+
+<p>AIClipper is a single-user desktop tool, built and operated by one creator, that
+uploads their own edited short-form videos to their own TikTok account
+(<strong>@hotmicarchive</strong>) and schedules them for planned posting times.</p>
+
+<h2>How it works</h2>
+<p>The operator produces edited clips (reframing, word-timed captions, and curation
+of licensed or credited source material) on their own computer. Each video is
+individually reviewed and approved by the operator before it is queued. The tool
+then uploads the approved video with its caption via TikTok's official API, under
+an OAuth authorization the operator grants to their own account.</p>
+
+<h2>What it does not do</h2>
+<ul>
+  <li>No third-party users — the tool serves only its operator and posts only to the operator's own account.</li>
+  <li>No engagement automation: no automated likes, comments, follows, or messages.</li>
+  <li>No collection of data about any TikTok user.</li>
+</ul>
+
+<footer>
+  <a href="terms.html">Terms of Service</a> · <a href="privacy.html">Privacy Policy</a>
+  · Contact: <a href="mailto:logiwarp@gmail.com">logiwarp@gmail.com</a>
+</footer>
+</body>
+</html>
